@@ -1,0 +1,19 @@
+@if (dotLoadingServices.isLoading()) {
+    <app-dot-animation [isLoading]="isLoading()"></app-dot-animation>
+}
+
+<div>
+    <main class="main-content" role="main">
+        <router-outlet></router-outlet>
+    </main>
+</div>
+
+@if (currentNotification(); as notification) {
+    <app-notification-alert
+            [type]="notification.type"
+            (close)="clearNotification()"
+            [message]="notification.message">
+    </app-notification-alert>
+}
+
+

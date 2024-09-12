@@ -1,0 +1,39 @@
+services:
+  production-tracker-ui-dev:
+    container_name: production-tracker-ui-${NODE_ENV}
+    restart: always
+    build:
+      context: .
+      args:
+        CONFIGURATION: development
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:80"
+    profiles:
+      - development
+
+  production-tracker-ui-qa:
+    container_name: production-tracker-ui-${NODE_ENV}
+    restart: always
+    build:
+      context: .
+      args:
+        CONFIGURATION: qa
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:80"
+    profiles:
+      - qa
+
+  production-tracker-ui-production:
+    container_name: production-tracker-ui-${NODE_ENV}
+    restart: always
+    build:
+      context: .
+      args:
+        CONFIGURATION: production
+      dockerfile: Dockerfile
+    ports:
+      - "${PORT}:80"
+    profiles:
+      - production

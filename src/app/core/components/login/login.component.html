@@ -1,0 +1,47 @@
+<div class="min-h-screen flex items-center justify-center bg-white">
+  <div class="bg-white p-12 rounded-3xl shadow-2xl w-full max-w-md transform transition-all hover:scale-105">
+      <div class="text-center mb-8">
+        <h2 class="mt-2 text-xl font-bold text-gray-600 pb-8">Welcome to Maxim GPM</h2>
+    <form class="space-y-6">
+      <div>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input type="text" [(ngModel)]="username" id="username" name="username" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="Your username">
+        </div>
+      </div>
+      <div>
+        <div class="mt-1 relative rounded-md shadow-sm">
+          <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fill-rule="evenodd" d="M5 9V7a5 5 0 0110 0v2a2 2 0 012 2v5a2 2 0 01-2 2H5a2 2 0 01-2-2v-5a2 2 0 012-2zm8-2v2H7V7a3 3 0 016 0z" clip-rule="evenodd" />
+            </svg>
+          </div>
+          <input type="password" [(ngModel)]="password" id="password" name="password" class="focus:ring-indigo-500 focus:border-indigo-500 block w-full pl-10 sm:text-sm border-gray-300 rounded-md" placeholder="Your password">
+        </div>
+      </div>
+
+      <div *ngIf="showError" class="text-red-500 text-sm text-center">
+        Username or Password is Incorrect
+      </div>
+
+      <div class="flex items-center justify-between">
+        <div class="flex items-center">
+          <input id="remember_me" name="remember_me" type="checkbox" class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+          <label for="remember_me" class="ml-2 block text-sm text-gray-900">Remember me</label>
+        </div>
+
+      </div>
+
+      <div>
+        <button type="submit" routerLink="/view-gate-pass" [ngClass]="{'animate-shake animate-twice animate-duration-100': showError}" class="text-white w-full bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center">
+          Sign In
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+</div>

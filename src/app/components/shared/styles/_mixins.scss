@@ -1,0 +1,24 @@
+@mixin statusBatch() {
+  .status-badge {
+    @apply inline-flex items-center justify-center capitalize text-xs font-medium px-2.5 py-1 rounded-full w-[110px];
+
+    &::before {
+      content: '';
+      @apply w-2 h-2 me-1 rounded-full;
+    }
+
+    &.started {
+      @apply bg-sky-100 text-sky-800;
+      &::before {
+        @apply bg-sky-600;
+      }
+    }
+
+    &.completed {
+      @apply bg-[#FCECCB] text-yellow-700;
+      &::before {
+        @apply bg-[#AD853E];
+      }
+    }
+  }
+}

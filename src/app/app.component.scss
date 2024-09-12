@@ -1,0 +1,14 @@
+.button-blue{
+  @apply px-3 py-2 text-sm font-light text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300;
+}
+.table {
+  @apply w-full text-sm text-left rtl:text-right text-gray-500 min-w-full;
+}
+
+.table-thead {
+  @apply text-xs text-gray-700 uppercase bg-gray-50;
+}
+
+.th, .table td {
+  @apply px-4 py-2 whitespace-nowrap;
+}

@@ -1,0 +1,19 @@
+import {Component, EventEmitter, Input, Output} from '@angular/core';
+import {NgClass} from "@angular/common";
+
+@Component({
+  selector: 'app-notification-alert',
+  templateUrl: './notification-alert.component.html',
+  standalone: true,
+  imports: [NgClass],
+  styleUrls: ['./notification-alert.component.scss']
+})
+export class NotificationAlertComponent {
+  @Input() type!: 'success' | 'error' | 'alert' | 'confirm';
+  @Input() message!: string;
+  @Output() close = new EventEmitter<void>();
+
+  closeNotification() {
+    this.close.emit();
+  }
+}
