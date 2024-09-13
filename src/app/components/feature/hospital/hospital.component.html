@@ -18,16 +18,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                <!-- Example User Rows -->
-                <tr class="hover:bg-gray-100">
-                    <td class="py-2 px-4 border-b">BHI-5643</td>
-                    <td class="py-2 px-4 border-b">2021</td>
-                    <td class="py-2 px-4 border-b">Car</td>
-                    <td class="py-2 px-4 border-b">Car</td>
-                    <td class="py-2 px-4 border-b">
-                        <button class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
-                    </td>
-                </tr>
+
+                    @for(user of hospitalDTOS.slice(0,5);track user){
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4 border-b">{{user.hospitalCode}}</td>
+                            <td class="py-2 px-4 border-b">{{user.hospitalName}}</td>
+                            <td class="py-2 px-4 border-b">{{user.contactNumber}}</td>
+                            <td class="py-2 px-4 border-b">{{user.city}}</td>
+                            <td class="py-2 px-4 border-b">{{user.province}}</td>
+                            <td class="py-2 px-4 border-b">{{user.district}}</td>
+                            <td class="py-2 px-4 border-b">
+                                <button class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
+                            </td>
+                        </tr>
+                    }
                 <!-- Add more user rows as needed -->
                 </tbody>
             </table>

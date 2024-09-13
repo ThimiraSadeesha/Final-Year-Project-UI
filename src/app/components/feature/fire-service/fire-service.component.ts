@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
+import {UserService} from "../../services/user.service";
+import {UserDTO} from "../../interface/user.entity";
+import {FireService} from "../../services/fire.service";
+import {FireDTO} from "../../interface/fire.entity";
 
 @Component({
   selector: 'app-fire-service',
@@ -8,5 +12,15 @@ import { Component } from '@angular/core';
   styleUrl: './fire-service.component.scss'
 })
 export class FireServiceComponent {
+
+
+  fireService=inject(FireService)
+  fireDTOS:FireDTO[]=[]
+
+  constructor() {
+    effect(() => {
+      this.fireDTOS=this.fireService.all()
+    });
+  }
 
 }
