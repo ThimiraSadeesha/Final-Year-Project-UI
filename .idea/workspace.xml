@@ -4,6 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+    <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/app/components/interface/user.entity.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/user/user.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/user/user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/user/user.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/enums/api.request.enum.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/enums/api.request.enum.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/core/types/api.request.types.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/core/types/api.request.types.ts" afterDir="false" />
     <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="fire completed">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/feature/fire-service/fire-service.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/fire-service/fire-service.component.html" afterDir="false" />
@@ -15,6 +23,13 @@
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,7 +64,10 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/opt/homebrew/bin/node",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "settings.nodejs",
+    "ts.external.directory.path": "/Volumes/Thimira/Accident Detection System/UI/ui/node_modules/typescript/lib",
     "ts.external.directory.path": "C:\\Users\\ChethanaD\\Desktop\\New folder\\Final-Year-Project-UI\\node_modules\\typescript\\lib",
     "vue.rearranger.settings.migration": "true"
   }
@@ -85,6 +103,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726130252652</updated>
       <workItem from="1726130253701" duration="540000" />
+      <workItem from="1726223215285" duration="2856000" />
     </task>
     <task id="LOCAL-00001" summary="created routes">
       <option name="closed" value="true" />
@@ -131,6 +150,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="created routes" />
