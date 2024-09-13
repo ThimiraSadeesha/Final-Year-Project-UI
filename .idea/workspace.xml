@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="">
+    <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="created routes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/feature/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/navigation/navigation.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/components/feature/police/police.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/police/police.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/vehicle/vehicle.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,9 +84,22 @@
       <updated>1726130252652</updated>
       <workItem from="1726130253701" duration="540000" />
     </task>
+    <task id="LOCAL-00001" summary="created routes">
+      <option name="closed" value="true" />
+      <created>1726223302829</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1726223302829</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="created routes" />
+    <option name="LAST_COMMIT_MESSAGE" value="created routes" />
   </component>
 </project>
