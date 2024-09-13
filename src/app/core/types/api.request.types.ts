@@ -6,7 +6,8 @@ export type APIRequestResource =
   APIRequestResources.EmployeeService |
   APIRequestResources.HospitalService |
   APIRequestResources.UserService |
-  APIRequestResources.FireService
+  APIRequestResources.FireService |
+  APIRequestResources.PoliceService
 
 
 

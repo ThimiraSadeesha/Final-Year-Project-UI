@@ -1,5 +1,6 @@
 import {HospitalService} from "../../components/services/hospital.service";
 import {FireService} from "../../components/services/fire.service";
+import {PoliceService} from "../../components/services/police.service";
 
 
 export enum APIRequestResources {
@@ -11,6 +12,7 @@ export enum APIRequestResources {
   HospitalService ='hospital',
   UserService ='user',
   FireService ='fire',
+  PoliceService ='police',
 
 
 }
