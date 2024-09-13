@@ -4,7 +4,7 @@
 
         <!-- User Table (Left Side) -->
         <div class="overflow-x-auto">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Users List</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Hospital</h2>
             <table class="min-w-full border border-gray-300">
                 <thead class="bg-gray-200">
                 <tr>
@@ -15,20 +15,22 @@
                     <th class="py-2 px-4 border-b">District</th>
                     <th class="py-2 px-4 border-b">Province</th>
                     <th class="py-2 px-4 border-b">Area Covered</th>
+                    <th class="py-2 px-4 border-b">Action</th>
                 </tr>
                 </thead>
                 <tbody>
 
-                    @for(user of hospitalDTOS.slice(0,5);track user){
+                    @for(hospital of hospitalDTOS.slice(0,5);track hospital){
                         <tr class="hover:bg-gray-100">
-                            <td class="py-2 px-4 border-b">{{user.hospitalCode}}</td>
-                            <td class="py-2 px-4 border-b">{{user.hospitalName}}</td>
-                            <td class="py-2 px-4 border-b">{{user.contactNumber}}</td>
-                            <td class="py-2 px-4 border-b">{{user.city}}</td>
-                            <td class="py-2 px-4 border-b">{{user.province}}</td>
-                            <td class="py-2 px-4 border-b">{{user.district}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.hospitalCode}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.hospitalName}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.contactNumber}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.city}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.province}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.district}}</td>
+                            <td class="py-2 px-4 border-b">{{hospital.coverdArea}}</td>
                             <td class="py-2 px-4 border-b">
-                                <button class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
+                                <button (click)="getById(hospital.hospitalId)" class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
                             </td>
                         </tr>
                     }
@@ -39,47 +41,58 @@
 
         <!-- User Management Form (Right Side) -->
         <div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Hospital Profile</h2>
+
+           <div>
+               <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Hospital Profile</h2>
+           </div>
+            <div>
+                <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="downClick()">Add new hospital</button>
+            </div>
 
             <!-- User Information Form -->
             <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <!-- Username -->
                 <div>
                     <label class="block text-gray-700 font-semibold" for="username">Code</label>
-                    <input id="username" name="username" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="username" [(ngModel)]="createHospital.code" name="username" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <!-- Full Name -->
                 <div>
                     <label class="block text-gray-700 font-semibold" for="fullname">Name</label>
-                    <input id="fullname" name="fullname" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="fullname" [(ngModel)]="createHospital.name" name="fullname" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <!-- NIC -->
                 <div>
                     <label class="block text-gray-700 font-semibold" for="nic">Contact Number</label>
-                    <input id="nic" name="nic" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="nic" [(ngModel)]="createHospital.contactNumber" name="nic" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <!-- Contact Number -->
                 <div>
                     <label class="block text-gray-700 font-semibold" for="contact">City</label>
-                    <input id="contact" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="contact" [(ngModel)]="createHospital.city" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="district">District</label>
-                    <input id="district" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="district" [(ngModel)]="createHospital.district" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="province">Province</label>
-                    <input id="province" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="province" [(ngModel)]="createHospital.province" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="areaCovered">Area Covered</label>
-                    <input id="areaCovered" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input id="areaCovered" [(ngModel)]="createHospital.areaCovered" name="contact" type="tel" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <div>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="update()">
+                        {{ hospitalId() > 0 ? 'Update' : 'Create' }}
+                    </button>
                 </div>
             </form>
         </div>

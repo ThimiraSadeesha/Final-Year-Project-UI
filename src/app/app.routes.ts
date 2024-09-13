@@ -33,5 +33,8 @@ export const routes: Routes = [
     {
         path: 'incident',
         loadComponent: () => import('./components/feature/index').then(com => com.IncidentComponent),
+    },  {
+        path: 'insurance',
+        loadComponent: () => import('./components/feature/index').then(com => com.InsuranceComponent),
     },
 ];
