@@ -1,101 +1,95 @@
-<div class="flex justify-center px-8 mt-10">
+<div class="flex justify-center px-8  mt-10">
+    <!-- Main Container -->
     <div class="bg-white rounded-lg shadow-lg p-8 w-full grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Fire Station Table -->
+
+        <!-- User Table (Left Side) -->
         <div class="overflow-x-auto">
-
             <h2 class="text-2xl font-bold text-gray-800 mb-4">Fire List</h2>
-
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Fire Stations List</h2
             <table class="min-w-full border border-gray-300">
                 <thead class="bg-gray-200">
                 <tr>
                     <th class="py-2 px-4 border-b">Code</th>
                     <th class="py-2 px-4 border-b">Name</th>
-                    <th class="py-2 px-4 border-b">Contact Number</th>
+                    <th class="py-2 px-4 border-b">Contact Number </th>
                     <th class="py-2 px-4 border-b">City</th>
                     <th class="py-2 px-4 border-b">District</th>
                     <th class="py-2 px-4 border-b">Province</th>
                     <th class="py-2 px-4 border-b">Area Covered</th>
+                    <th class="py-2 px-4 border-b">Action</th>
                 </tr>
                 </thead>
                 <tbody>
-                    @for (station of fireDTOS; track station.fireId) {
-                        <tr (click)="selectStation(station)" class="hover:bg-gray-100 cursor-pointer">
-                            <td class="py-2 px-4 border-b">{{station.fireId}}</td>
-                            <td class="py-2 px-4 border-b">{{station.fireName}}</td>
-                            <td class="py-2 px-4 border-b">{{station.contactNumber}}</td>
-                            <td class="py-2 px-4 border-b">{{station.city}}</td>
-                            <td class="py-2 px-4 border-b">{{station.district}}</td>
-                            <td class="py-2 px-4 border-b">{{station.province}}</td>
+                    @for(user of fireDTOS.slice(0,8);track user){
+                        <tr class="hover:bg-gray-100" (click)="getById(user.fireId)">
+                            <td class="py-2 px-4 border-b">{{user.firelCode}}</td>
+                            <td class="py-2 px-4 border-b">{{user.fireName}}</td>
+                            <td class="py-2 px-4 border-b">{{user.contactNumber}}</td>
+                            <td class="py-2 px-4 border-b">{{user.city}}</td>
+                            <td class="py-2 px-4 border-b">{{user.province}}</td>
+                            <td class="py-2 px-4 border-b">{{user.district}}</td>
+                            <td class="py-2 px-4 border-b">{{user.coverdArea}}</td>
                             <td class="py-2 px-4 border-b">
                                 <button class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
                             </td>
                         </tr>
-                    } @empty {
-                        <tr>
-                            <td colspan="7" class="py-4 px-4 text-center text-gray-500">No fire stations found.</td>
-                        </tr>
                     }
+                <!-- Add more user rows as needed -->
                 </tbody>
             </table>
         </div>
 
-        <!-- Fire Station Management Form -->
+        <!-- User Management Form (Right Side) -->
         <div>
-            <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Fire Station Profile</h2>
-            <form (ngSubmit)="onSubmit()" #fireForm="ngForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Hospital Profile</h2>
+            </div>
+            <div>
+                <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="downClick()">Add new hospital</button>
+            </div>
+            <!-- User Information Form -->
+            <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Username -->
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="fireCode">Code</label>
-                    <input id="fireCode" name="fireCode" type="text"
-                           [(ngModel)]="selectedStation.fireId"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <label class="block text-gray-700 font-semibold" for="username">Code</label>
+                    <input [(ngModel)]="createFire.fireCode" id="username" name="username" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
+                <!-- Full Name -->
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="fireName">Name</label>
-                    <input id="fireName" name="fireName" type="text"
-                           [(ngModel)]="selectedStation.fireName"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <label class="block text-gray-700 font-semibold" for="fullname">Name</label>
+                    <input [(ngModel)]="createFire.fireName" id="fullname" name="fullname" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
+                <!-- NIC -->
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="contactNumber">Contact Number</label>
-                    <input id="contactNumber" name="contactNumber" type="text"
-                           [(ngModel)]="selectedStation.contactNumber"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <label class="block text-gray-700 font-semibold" for="nic">Contact Number</label>
+                    <input [(ngModel)]="createFire.contactNumber" id="nic" name="nic" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
+                <!-- Contact Number -->
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="city">City</label>
-                    <input id="city" name="city" type="text"
-                           [(ngModel)]="selectedStation.city"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <label class="block text-gray-700 font-semibold" for="contact">City</label>
+                    <input [(ngModel)]="createFire.city" id="contact" name="contact" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="district">District</label>
-                    <input id="district" name="district" type="text"
-                           [(ngModel)]="selectedStation.district"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input [(ngModel)]="createFire.district" id="district" name="district" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="province">Province</label>
-                    <input id="province" name="province" type="text"
-                           [(ngModel)]="selectedStation.province"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input [(ngModel)]="createFire.province" id="province" name="province" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
                 <div>
                     <label class="block text-gray-700 font-semibold" for="areaCovered">Area Covered</label>
-                    <input id="areaCovered" name="areaCovered" type="text"
-                           [(ngModel)]="selectedStation.coveredArea"
-                           class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                    <input [(ngModel)]="createFire.areaCovered" id="areaCovered" name="areaCovered" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
                 </div>
 
-                <div class="col-span-2">
-                    <button type="submit" class="mt-6 bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600">
-                        Save Changes
+                <div>
+                    <button class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" (click)="update()">
+                        {{ fireId() > 0 ? 'Update' : 'Create' }}
                     </button>
                 </div>
             </form>
