@@ -9,7 +9,8 @@ import {Router} from "@angular/router";
 import {UserDTO} from "../interface/user.entity";
 import {UnitDTO} from "../interface/unit.entity";
 import {handleError} from "../../core/util/util";
-import {PoliceStationDTO} from "../interface/police.entity";
+import {PoliceStation, PoliceStationDTO} from "../interface/police.entity";
+import {Hospital} from "../interface/hospital.entity";
 
 
 @Injectable({
@@ -20,7 +21,7 @@ export class PoliceService extends CachedAPIRequest {
     private readonly $all = new BehaviorSubject<PoliceStationDTO[]>([])
     all = toSignal(this.$all, {initialValue: []})
 
-    private readonly $active = new BehaviorSubject<JobCardResultDTO | undefined>(undefined)
+    private readonly $active = new BehaviorSubject<PoliceStation | undefined>(undefined)
     active = toSignal(this.$active, {initialValue: undefined})
 
     private readonly $statistics = new BehaviorSubject<any>(undefined)
@@ -39,6 +40,35 @@ export class PoliceService extends CachedAPIRequest {
             )
     }
 
+
+    getById = (id: string, refresh= true) => {
+        return this.get<PoliceStation>({id}, refresh ? 'freshness' : 'performance')
+            .pipe(
+                tap((res) => this.$active.next(res.data)),
+            )
+    }
+
+    initial(){
+        this.$active.next(undefined)
+    }
+
+
+    update = (id: number, policedetails: any) => {
+        const options = {suffix: id.toString()};
+        return this.put<any>(policedetails, options).pipe(
+            tap(() => {
+                this.$all.next([])
+            })
+        );
+    }
+
+    create = (police: any) => {
+        return this.post<any>(police, {}).pipe(
+            tap(() => {
+                this.$all.next([])
+            })
+        );
+    }
 
 
 
