@@ -20,14 +20,14 @@ export const routes: Routes = [
     },
     {
         path: 'police',
-        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+        loadComponent: () => import('./components/feature/index').then(com => com.PoliceComponent),
     },
     {
         path: 'fire',
-        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+        loadComponent: () => import('./components/feature/index').then(com => com.FireServiceComponent),
     },
     {
         path: 'vehicle',
-        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+        loadComponent: () => import('./components/feature/index').then(com => com.VehicleComponent),
     },
 ];
