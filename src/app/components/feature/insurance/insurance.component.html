@@ -4,7 +4,7 @@
 
         <!-- User Table (Left Side) -->
         <div class="overflow-x-auto">
-            <h2 class="text-2xl font-bold text-gray-800 mb-4">Fire List</h2>
+            <h2 class="text-2xl font-bold text-gray-800 mb-4">Insurance List</h2>
             <table class="min-w-full border border-gray-300">
                 <thead class="bg-gray-200">
                 <tr>
@@ -18,10 +18,11 @@
                 </tr>
                 </thead>
                 <tbody>
-                    @for(user of fireDTOS.slice(0,8);track user){
+
+                    @for(user of hospitalDTOS.slice(0,5);track user){
                         <tr class="hover:bg-gray-100">
-                            <td class="py-2 px-4 border-b">{{user.firelCode}}</td>
-                            <td class="py-2 px-4 border-b">{{user.fireName}}</td>
+                            <td class="py-2 px-4 border-b">{{user.hospitalCode}}</td>
+                            <td class="py-2 px-4 border-b">{{user.hospitalName}}</td>
                             <td class="py-2 px-4 border-b">{{user.contactNumber}}</td>
                             <td class="py-2 px-4 border-b">{{user.city}}</td>
                             <td class="py-2 px-4 border-b">{{user.province}}</td>

@@ -22,9 +22,9 @@ export class PlanCardService extends CachedAPIRequest {
     private readonly $statistics = new BehaviorSubject<any>(undefined)
     stat = toSignal(this.$statistics, {initialValue: undefined})
 
-    constructor(protected override http: HttpClient, private router: Router) {
-        super(http, APIRequestResources.PlanCardService)
-    }
+    // constructor(protected override http: HttpClient, private router: Router) {
+    //     super(http, APIRequestResources.PlanCardService)
+    // }
 
     find = (searchParams: any, refresh = true) => {
         return this.get<PaginationResponse<JobCardSearchResultDTO[]>>({
