@@ -1,2 +1,6 @@
-// export  * from './dashboard/index'
-export * from './production-tracker/index'
+export  * from './admin-dashboard/admin-dashboard.component'
+export  * from './hospital/hospital.component'
+export * from './user/user.component'
+export * from './vehicle/vehicle.component'
+export * from './police/police.component'
+export * from './fire-service/fire-service.component'
