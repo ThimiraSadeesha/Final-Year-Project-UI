@@ -7,7 +7,15 @@ export const routes: Routes = [
         pathMatch: 'full'
     },
     {
-        path: 'plan-card-tracker',
-        // loadComponent: () => import('./components/index').then(com => com.DashboardComponent),
+        path: 'dashboard',
+        loadComponent: () => import('./components/feature/index').then(com => com.AdminDashboardComponent),
+    },
+    {
+        path: 'user',
+        loadComponent: () => import('./components/feature/index').then(com => com.UserComponent),
+    },
+    {
+        path: 'hospital',
+        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
     },
 ];
