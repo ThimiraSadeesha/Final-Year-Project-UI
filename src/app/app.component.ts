@@ -6,11 +6,12 @@ import {LoadingService, NotificationService} from "./components";
 import {DotLoadingServices} from "./core";
 import {DotAnimationComponent} from "./core/components/loading/dot-animation/dot-animation.component";
 import {NotificationAlertComponent} from "./core/components/notification/notification-alert.component";
+import {NavigationComponent} from "./components/feature/navigation/navigation.component";
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, DotAnimationComponent, NotificationAlertComponent],
+    imports: [RouterOutlet, DotAnimationComponent, NotificationAlertComponent, NavigationComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
