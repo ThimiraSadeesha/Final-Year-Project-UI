@@ -6,5 +6,15 @@ export interface FireDTO {
     city: string;
     district: string;
     province: string;
-    coveredArea: string;
+    coverdArea: string;
+}
+export interface Fire {
+    fireId: number;
+    firelCode: string;
+    fireName: string;
+    contactNumber: string;
+    city: string;
+    district: string;
+    province: string;
+    coverdArea: string;
 }
