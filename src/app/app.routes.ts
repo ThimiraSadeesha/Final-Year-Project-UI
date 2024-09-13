@@ -18,4 +18,16 @@ export const routes: Routes = [
         path: 'hospital',
         loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
     },
+    {
+        path: 'police',
+        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+    },
+    {
+        path: 'fire',
+        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+    },
+    {
+        path: 'vehicle',
+        loadComponent: () => import('./components/feature/index').then(com => com.HospitalComponent),
+    },
 ];
