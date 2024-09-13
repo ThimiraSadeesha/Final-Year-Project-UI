@@ -18,5 +18,5 @@ export interface Hospital {
     city: string;
     district: string;
     province: string;
-    coveredArea: string;
+    coverdArea: string;
 }

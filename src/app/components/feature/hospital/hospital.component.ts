@@ -32,9 +32,7 @@ export class HospitalComponent {
         district: '',
         province: '',
         areaCovered: '',
-
     }
-
 
     constructor() {
         effect(() => {
@@ -50,11 +48,10 @@ export class HospitalComponent {
                 this.createHospital.city = hospital.city
                 this.createHospital.district = hospital.district
                 this.createHospital.province = hospital.province
-                this.createHospital.areaCovered = hospital.coveredArea
+                this.createHospital.areaCovered = hospital.coverdArea
             }
         }, {allowSignalWrites: true});
     }
-
 
     getById(id: number) {
         this.hospitalService.getById(id.toString()).subscribe({
@@ -63,22 +60,19 @@ export class HospitalComponent {
             },
             error: (err: any) => {
                 console.error(err);
-
             }
         })
     }
 
     update() {
-
         if(this.hospitalId() >0){
             this.hospitalService.update(this.hospitalId(), this.createHospital).subscribe(
                 {
                     next: gatePass => {
-                        window.location.reload();
+                         window.location.reload();
                         console.log(gatePass)
                     },
                     error: err => {
-
                         console.error(err);
                     }
                 }
@@ -94,12 +88,8 @@ export class HospitalComponent {
                     console.error(err);
                 }
             })
-
         }
-
-
     }
-
 
     downClick() {
         this.createHospital = {
@@ -110,10 +100,9 @@ export class HospitalComponent {
             district: '',
             province: '',
             areaCovered: '',
-
         }
-
         this.hospitalId.set(-1)
         this.hospitalService.initial()
     }
+
 }
