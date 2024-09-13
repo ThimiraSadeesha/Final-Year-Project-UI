@@ -8,38 +8,34 @@
             <table class="min-w-full border border-gray-300">
                 <thead class="bg-gray-200">
                 <tr>
-                    <th class="py-2 px-4 border-b">Code </th>
-                    <th class="py-2 px-4 border-b">Name</th>
-                    <th class="py-2 px-4 border-b">Contact Number</th>
-                    <th class="py-2 px-4 border-b">City</th>
-                    <th class="py-2 px-4 border-b">District</th>
-                    <th class="py-2 px-4 border-b">Province</th>
-                    <th class="py-2 px-4 border-b">Area Covered</th>
-
-
+                    <th class="py-2 px-4 border-b">severity </th>
+                    <th class="py-2 px-4 border-b">location</th>
+                    <th class="py-2 px-4 border-b">Time</th>
+                    <th class="py-2 px-4 border-b">status</th>
+                    <th class="py-2 px-4 border-b">device Status</th>
+                    <th class="py-2 px-4 border-b">action</th>
                 </tr>
                 </thead>
                 <tbody>
-                <!-- Example User Rows -->
-                <tr class="hover:bg-gray-100">
-                    <td class="py-2 px-4 border-b">AMB</td>
-                    <td class="py-2 px-4 border-b">2021</td>
-                    <td class="py-2 px-4 border-b">Car</td>
-                    <td class="py-2 px-4 border-b">Car</td>
-                    <td class="py-2 px-4 border-b">
-                        <button class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">View</button>
-                    </td>
-                </tr>
-                <!-- Add more user rows as needed -->
+
+                    @for(accident of incidentDtos.slice(0,5);track accident){
+                        <tr class="hover:bg-gray-100">
+                            <td class="py-2 px-4 border-b">{{accident.serverity}}</td>
+                            <td class="py-2 px-4 border-b">{{accident.location}}</td>
+                            <td class="py-2 px-4 border-b">{{accident.incidentTime}}</td>
+                            <td class="py-2 px-4 border-b">{{accident.incidentStatus}}</td>
+                            <td class="py-2 px-4 border-b">{{accident.device.deviceStatus}}</td>
+                            <td class="py-2 px-4 border-b">
+                                <button (click)="get(accident.device.userId)" class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">Action</button>
+                            </td>
+                        </tr>
+                    }
                 </tbody>
             </table>
         </div>
 
-        <!-- User Management Form (Right Side) -->
         <div>
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Incident</h2>
-
-            <!-- User Information Form -->
             <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
                     <label class="block text-gray-700 font-semibold" for="police">Province</label>
@@ -48,7 +44,6 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="block text-gray-700 font-semibold" for="hospital">Province</label>
                     <select id="hospital" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
@@ -56,7 +51,6 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="block text-gray-700 font-semibold" for="apple">Province</label>
                     <select id="apple" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
@@ -64,7 +58,6 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="block text-gray-700 font-semibold" for="orange">Province</label>
                     <select id="orange" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
@@ -72,7 +65,6 @@
                         <option value="Female">Female</option>
                     </select>
                 </div>
-
                 <div>
                     <label class="block text-gray-700 font-semibold" for="red">Province</label>
                     <select id="red" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">

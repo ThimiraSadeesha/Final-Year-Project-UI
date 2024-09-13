@@ -3,7 +3,7 @@ import {Routes} from '@angular/router';
 export const routes: Routes = [
     {
         path: '',
-        redirectTo: 'plan-card-tracker',
+        redirectTo: 'user',
         pathMatch: 'full'
     },
     {

@@ -1,3 +1,25 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import {Injectable} from "@angular/core";
 import {APIRequestResources, CachedAPIRequest} from "../../core";
 import {BehaviorSubject, catchError, take, tap} from "rxjs";
@@ -9,32 +31,31 @@ import {Router} from "@angular/router";
 import {UserDTO} from "../interface/user.entity";
 import {UnitDTO} from "../interface/unit.entity";
 import {handleError} from "../../core/util/util";
-import {HospitalDTO} from "../interface/hospital.entity";
-import {FireDTO} from "../interface/fire.entity";
-
+import {PoliceStation, PoliceStationDTO} from "../interface/police.entity";
+import {Hospital} from "../interface/hospital.entity";
+import {InsuranceDto} from "../interface/insruance.entity";
 
 @Injectable({
     providedIn: 'root'
 })
 export class InsuranceService extends CachedAPIRequest {
 
-    private readonly $all = new BehaviorSubject<FireDTO[]>([])
+    private readonly $all = new BehaviorSubject<InsuranceDto[]>([])
     all = toSignal(this.$all, {initialValue: []})
 
-    private readonly $active = new BehaviorSubject<JobCardResultDTO | undefined>(undefined)
+    private readonly $active = new BehaviorSubject<PoliceStation | undefined>(undefined)
     active = toSignal(this.$active, {initialValue: undefined})
 
     private readonly $statistics = new BehaviorSubject<any>(undefined)
     stat = toSignal(this.$statistics, {initialValue: undefined})
 
     constructor(protected override http: HttpClient, private router: Router) {
-        super(http, APIRequestResources.FireService)
+        super(http, APIRequestResources.InsuranceService)
         this.getAll().pipe(take(1)).subscribe()
     }
 
-
     getAll(refresh = true) {
-        return this.get<FireDTO[]>({}, refresh ? 'freshness' : 'performance')
+        return this.get<InsuranceDto[]>({endpoint:'all'}, refresh ? 'freshness' : 'performance')
             .pipe(
                 tap(res => this.$all.next(res.data ?? [])),
                 catchError(handleError)
@@ -42,6 +63,37 @@ export class InsuranceService extends CachedAPIRequest {
     }
 
 
+    getById = (id: string, refresh= true) => {
+        return this.get<PoliceStation>({id}, refresh ? 'freshness' : 'performance')
+            .pipe(
+                tap((res) => this.$active.next(res.data)),
+            )
+    }
+
+    initial(){
+        this.$active.next(undefined)
+    }
+
+
+    update = (id: number, policedetails: any) => {
+        const options = {suffix: id.toString()};
+        return this.put<any>(policedetails, options).pipe(
+            tap(() => {
+                this.$all.next([])
+            })
+        );
+    }
+
+    create = (police: any) => {
+        return this.post<any>(police, {}).pipe(
+            tap(() => {
+                this.$all.next([])
+            })
+        );
+    }
+
 
 
 }
+
+

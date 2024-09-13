@@ -1,4 +1,5 @@
 import {APIRequestResources} from "../enums"
+import {IncidentService} from "../../components/services/incident.service";
 
 
 export type APIRequestResource =
@@ -7,7 +8,9 @@ export type APIRequestResource =
   APIRequestResources.HospitalService |
   APIRequestResources.UserService |
   APIRequestResources.FireService |
-  APIRequestResources.PoliceService
+  APIRequestResources.PoliceService |
+  APIRequestResources.InsuranceService |
+  APIRequestResources.IncidentService
 
 
 

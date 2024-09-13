@@ -1,6 +1,7 @@
 import {Component, effect, inject} from '@angular/core';
-import {HospitalService} from "../../services/hospital.service";
-import {HospitalDTO} from "../../interface/hospital.entity";
+
+import {InsuranceDto} from "../../interface/insruance.entity";
+import {InsuranceService} from "../../services/insurance.service";
 
 @Component({
   selector: 'app-insurance',
@@ -12,12 +13,12 @@ import {HospitalDTO} from "../../interface/hospital.entity";
 export class InsuranceComponent {
 
 
-  hospitalService=inject(HospitalService)
-  hospitalDTOS:HospitalDTO[]=[]
+  insuranceService=inject(InsuranceService)
+  insuranceDto:InsuranceDto[]=[]
 
   constructor() {
     effect(() => {
-      this.hospitalDTOS=this.hospitalService.all()
+      this.insuranceDto=this.insuranceService.all()
     });
   }
 }
