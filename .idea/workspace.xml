@@ -4,12 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="fire completed">
+    <list default="true" id="a2a52691-ffac-41e0-93af-10fc1a821876" name="Changes" comment="did some minor changes">
+      <change afterPath="$PROJECT_DIR$/src/app/components/feature/incident/incident.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/feature/incident/incident.component.scss" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/feature/incident/incident.component.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/components/feature/incident/incident.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/feature/fire-service/fire-service.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/fire-service/fire-service.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/feature/hospital/hospital.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/hospital/hospital.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/feature/police/police.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/police/police.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/components/feature/vehicle/vehicle.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/vehicle/vehicle.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routes.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/navigation/navigation.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/navigation/navigation.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/components/feature/user/user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/components/feature/user/user.component.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,20 +44,20 @@
     <option name="showLibraryContents" value="true" />
     <option name="showMembers" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev",
-    "last_opened_file_path": "/Volumes/Thimira/Accident Detection System/UI/Accident-detection-ui",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "C:\\Users\\ChethanaD\\Desktop\\New folder\\Final-Year-Project-UI\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Volumes/Thimira/Accident Detection System/UI/Accident-detection-ui&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\ChethanaD\\Desktop\\New folder\\Final-Year-Project-UI\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="npm.Angular CLI Server">
     <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
       <method v="2" />
@@ -85,6 +89,7 @@
       <option name="presentableId" value="Default" />
       <updated>1726130252652</updated>
       <workItem from="1726130253701" duration="540000" />
+      <workItem from="1726229273650" duration="510000" />
     </task>
     <task id="LOCAL-00001" summary="created routes">
       <option name="closed" value="true" />
@@ -126,7 +131,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726224375254</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="did some minor changes">
+      <option name="closed" value="true" />
+      <created>1726225751290</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1726225751290</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -138,6 +151,7 @@
     <MESSAGE value="vehicle" />
     <MESSAGE value="hospital" />
     <MESSAGE value="fire completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fire completed" />
+    <MESSAGE value="did some minor changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="did some minor changes" />
   </component>
 </project>
