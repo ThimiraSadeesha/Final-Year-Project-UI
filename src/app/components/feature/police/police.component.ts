@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import {Component, effect, inject} from '@angular/core';
+import {HospitalService} from "../../services/hospital.service";
+import {HospitalDTO} from "../../interface/hospital.entity";
+import {PoliceService} from "../../services/police.service";
+import {PoliceStationDTO} from "../../interface/police.entity";
 
 @Component({
   selector: 'app-police',
@@ -9,4 +13,12 @@ import { Component } from '@angular/core';
 })
 export class PoliceComponent {
 
+  policeService=inject(PoliceService)
+  policeStationDTOS:PoliceStationDTO[]=[]
+
+  constructor() {
+    effect(() => {
+      this.policeStationDTOS=this.policeService.all()
+    });
+  }
 }
