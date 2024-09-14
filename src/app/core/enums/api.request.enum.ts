@@ -9,6 +9,7 @@ export enum APIRequestResources {
   PoliceService ='police',
   InsuranceService ='insurance',
   IncidentService ='accident',
+  ResponseService ='response',
 
 
 }

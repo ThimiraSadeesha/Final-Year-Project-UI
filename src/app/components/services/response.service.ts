@@ -16,7 +16,7 @@ import {Incident, IncidentDto} from "../interface/incident.entity";
 @Injectable({
     providedIn: 'root'
 })
-export class IncidentService extends CachedAPIRequest {
+export class ResponseService extends CachedAPIRequest {
 
     private readonly $all = new BehaviorSubject<IncidentDto[]>([])
     all = toSignal(this.$all, {initialValue: []})
@@ -28,25 +28,8 @@ export class IncidentService extends CachedAPIRequest {
     stat = toSignal(this.$statistics, {initialValue: undefined})
 
     constructor(protected override http: HttpClient, private router: Router) {
-        super(http, APIRequestResources.IncidentService)
-        this.getAll().pipe(take(1)).subscribe()
-    }
+        super(http, APIRequestResources.ResponseService)
 
-
-    getAll(refresh = true) {
-        return this.get<IncidentDto[]>({endpoint:'all'}, refresh ? 'freshness' : 'performance')
-            .pipe(
-                tap(res => this.$all.next(res.data ?? [])),
-                catchError(handleError)
-            )
-    }
-
-
-    getById = (id: string, refresh= true) => {
-        return this.get<Incident>({id}, refresh ? 'freshness' : 'performance')
-            .pipe(
-                tap((res) => this.$active.next(res.data)),
-            )
     }
 
     create = (hospital: any) => {
@@ -56,5 +39,4 @@ export class IncidentService extends CachedAPIRequest {
             })
         );
     }
-
 }

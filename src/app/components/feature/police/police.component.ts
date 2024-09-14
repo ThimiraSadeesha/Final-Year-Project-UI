@@ -85,6 +85,7 @@ export class PoliceComponent {
             this.policeService.update(this.policeId(), this.policeDTO).subscribe(
                 {
                     next: gatePass => {
+                        window.alert('Updated Police department')
                         window.location.reload();
                         console.log(gatePass)
                     },
@@ -97,6 +98,7 @@ export class PoliceComponent {
         } else {
             this.policeService.create(this.policeDTO).subscribe({
                 next: (response) => {
+                    window.alert('Saved Police department')
                     console.log(response)
                     window.location.reload();
                 },

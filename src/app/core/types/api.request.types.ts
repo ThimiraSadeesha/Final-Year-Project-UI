@@ -10,7 +10,8 @@ export type APIRequestResource =
   APIRequestResources.FireService |
   APIRequestResources.PoliceService |
   APIRequestResources.InsuranceService |
-  APIRequestResources.IncidentService
+  APIRequestResources.IncidentService |
+  APIRequestResources.ResponseService
 
 
 

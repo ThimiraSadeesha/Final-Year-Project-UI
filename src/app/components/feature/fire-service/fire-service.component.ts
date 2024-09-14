@@ -84,6 +84,7 @@ export class FireServiceComponent {
       this.fireService.update(this.fireId(), this.createFire).subscribe(
           {
             next: gatePass => {
+              window.alert('Updated Fire department')
               window.location.reload();
               console.log(gatePass)
             },
@@ -97,6 +98,7 @@ export class FireServiceComponent {
       this.fireService.create(this.createFire).subscribe({
         next: (response) => {
           console.log(response)
+          window.alert('Saved Fire department')
           window.location.reload();
         },
         error: (err: any) => {

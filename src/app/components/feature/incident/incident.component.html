@@ -26,7 +26,7 @@
                             <td class="py-2 px-4 border-b">{{accident.incidentStatus}}</td>
                             <td class="py-2 px-4 border-b">{{accident.device.deviceStatus}}</td>
                             <td class="py-2 px-4 border-b">
-                                <button (click)="get(accident.device.userId)" class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">Action</button>
+                                <button (click)="get(accident.device.userId,accident.id)" class="bg-blue-500 text-white py-1 px-2 rounded hover:bg-blue-600">Action</button>
                             </td>
                         </tr>
                     }
@@ -38,39 +38,70 @@
             <h2 class="text-2xl font-bold text-gray-800 mb-6">Edit Incident</h2>
             <form action="#" method="POST" class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="police">Province</label>
-                    <select id="police" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="Male" selected>Male</option>
-                        <option value="Female">Female</option>
+                    <label class="block text-gray-700 font-semibold" for="address">UserName</label>
+                    <input id="address" [(ngModel)]="Username" name="address" type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold" for="email">contact Person</label>
+                    <input id="email" [(ngModel)]="personName"  name="email" type="email"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+                <!-- Gender -->
+                <div>
+                    <label class="block text-gray-700 font-semibold" for="gender">vehicle</label>
+                    <input id="gender" [(ngModel)]="vehicleNumber"  name="gender" type="text"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                </div>
+
+                <div>
+                    <label class="block text-gray-700 font-semibold" for="status">Status</label>
+                    <select id="status" name="gender"  [(ngModel)]="createResponse.responseStatus"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                            <option value="">Select Type</option>
+                            <option value="active">Active</option>
+                            <option value="pending">Pending</option>
+                            <option value="reslove">Resolve</option>
+
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="hospital">Province</label>
-                    <select id="hospital" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="Male" selected>Male</option>
-                        <option value="Female">Female</option>
+                    <label class="block text-gray-700 font-semibold" for="police">Police</label>
+                    <select id="police" [(ngModel)]="createResponse.policeDepartmentId" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value=" " selected>Select Police</option>
+                        @for(police of policeStationDTOS.slice(0,8);track police){
+                            <option [value]="police.policeId">{{police.city}}</option>
+                        }
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="apple">Province</label>
-                    <select id="apple" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="Male" selected>Male</option>
-                        <option value="Female">Female</option>
+                    <label class="block text-gray-700 font-semibold" for="hospital">Hospital</label>
+                    <select id="hospital" [(ngModel)]="createResponse.hospitalDepartmentId"  name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value="">Select Hospital</option>
+                        @for(hospital of hospitalDTOS.slice(0,8);track hospital){
+                        <option [value]="hospital.hospitalId">{{hospital.hospitalId}}</option>
+                        }
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="orange">Province</label>
-                    <select id="orange" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="Male" selected>Male</option>
-                        <option value="Female">Female</option>
+                    <label class="block text-gray-700 font-semibold" for="apple">Fire</label>
+                    <select id="apple" name="gender" [(ngModel)]="createResponse.fireDepartmentId"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value=" ">Select Fire</option>
+                        @for(fire of fireDTOS.slice(0,8);track fire){
+                            <option [value]="fire.fireId">{{fire.city}}</option>
+                        }
                     </select>
                 </div>
                 <div>
-                    <label class="block text-gray-700 font-semibold" for="red">Province</label>
-                    <select id="red" name="gender" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
-                        <option value="Male" selected>Male</option>
-                        <option value="Female">Female</option>
+                    <label class="block text-gray-700 font-semibold" for="orange">Insurance</label>
+                    <select id="orange" name="gender" [(ngModel)]="createResponse.incidentId"  class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500">
+                        <option value=" ">Select Insurance</option>
+                        @for(ins of insuranceDto.slice(0,8);track ins){
+                            <option [value]="ins.insuranceId">{{ins.city}}</option>
+                        }
                     </select>
+                </div>
+                <div>
+                    <button (click)="create()" class="mt-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+                    Response
+                    </button>
                 </div>
             </form>
         </div>
